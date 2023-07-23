@@ -14,16 +14,20 @@ const PostCard = ( { post, handleTagClick, handleEdit, handleDelete }) => {
 
   const [copied, setCopied] = useState('')
 
+  // Like functionalty states
   const [isLiked, setIsLiked] = useState('')
   const [likeCount, setLikeCount] = useState(post.likeCount);
+  const [isFetching, setIsFetching] = useState(false);
 
 
+  // Copy text from post
   const handleCopy = () => {
     setCopied(post.noun)
     navigator.clipboard.writeText(post.noun);
     setTimeout(() => setCopied(''), 3000)
   }
 
+  // Checking who is author of post, to proper redirect
   const handleProfileClick = () => {
     if (post.creator._id === session?.user.id) return router.push('/profile')
 
@@ -31,6 +35,7 @@ const PostCard = ( { post, handleTagClick, handleEdit, handleDelete }) => {
 
   }
 
+  // Fetching information about whether a user has liked a post
   useEffect(() => {
     const fetchLikeStatus = async () => {
       try {
@@ -40,16 +45,25 @@ const PostCard = ( { post, handleTagClick, handleEdit, handleDelete }) => {
         // Update the isLiked state based on the response
         if (response.ok) setIsLiked(isLiked);
 
-      } catch (error) {
-        console.log("Error fetching like status:", error);
-      }
+        } catch (error) {
+          console.log("Error fetching like status:", error);
+        }
     };
     if (session?.user.id) fetchLikeStatus();
 
   }, [])
 
+
+  // sending information about the user's interactions with the like button
   const handleLikeClick = async (e) => {
     e.preventDefault();
+
+    if (isFetching) {
+      // If a fetch request is already in progress, do nothing
+      return;
+    }
+    // Update the fetching state to indicate that a request is in progress
+    setIsFetching(true);
   
     // Immediately update the state to provide a more consistent user experience
     setIsLiked((prev) => !prev);
@@ -74,8 +88,11 @@ const PostCard = ( { post, handleTagClick, handleEdit, handleDelete }) => {
   
       // Handle the error as needed (e.g., show an error message)
       console.error('An error occurred:', error);
-    }
-  };
+    } finally {
+    // Regardless of success or error, update the fetching state to indicate that the request is completed
+    setIsFetching(false);
+      }
+    };
 
 
   return (
@@ -88,7 +105,7 @@ const PostCard = ( { post, handleTagClick, handleEdit, handleDelete }) => {
               {post.creator.username}
             </h3>
             <p className="text-sm font-inter">
-              Driada
+              {post.creator.rankTitle}
             </p>
           </div>
         </div>

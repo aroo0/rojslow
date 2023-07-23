@@ -16,6 +16,12 @@ const UserSchema = new Schema({
         required: [true, 'Counter is required.'],
         default: 0 
     },
+    rankTitle: {
+        type: String,
+        required: [true, 'Rank is required.'],
+        default: 'Ameby'
+
+    }
 });
 
 
