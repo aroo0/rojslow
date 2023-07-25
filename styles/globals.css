@@ -28,18 +28,23 @@
   }
 }
 
+.gradient {
+  background: linear-gradient(5deg, #D8602D 0%, #E77A38 40.10%, #EC8E46 73.96%, #F09846 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
 .main {
   width: 100vw;
-  min-height: 120%;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
   position: fixed;
   display: flex;
   justify-content: center;
   pointer-events: none;
   z-index: -1;
   background: linear-gradient(5deg, #D8602D 0%, #E77A38 40.10%, #EC8E46 73.96%, #F09846 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
   pointer-events: none;
 }
 

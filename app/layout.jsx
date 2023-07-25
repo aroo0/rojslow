@@ -19,9 +19,9 @@ const RootLayout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
     </head>
-    <body className='grid xl:grid-cols-3 text-black/80'>
-    <div className='main'>
-        </div>
+    <body className='grid xl:grid-cols-3 text-black/80 gradient'>
+    {/* <div className='main'>
+        </div> */}
       <div className='min-h-screen col-span-2 flex flex-col justify-between pt-3'>
       <Provider>
         <main className='app'>
