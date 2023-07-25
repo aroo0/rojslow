@@ -35,33 +35,6 @@
 
 }
 
-.main {
-  width: 100vw;
-  min-height: 100dvh;
-  min-height: -webkit-fill-available;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  pointer-events: none;
-  z-index: -1;
-  background: linear-gradient(5deg, #D8602D 0%, #E77A38 40.10%, #EC8E46 73.96%, #F09846 100%);
-  pointer-events: none;
-}
-
-.main:after {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  mix-blend-mode: soft-light;
-  filter: brightness(80%);
-  content: "";
-  position: absolute;
-  background: url('/assets/noise.svg');
-}
-
-
-
 .avatar {
   border-radius: 50%;
   background-color: rgb(211, 210, 207);

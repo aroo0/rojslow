@@ -172,7 +172,7 @@ const Nav = () => {
     </nav>
     {toggleDisplayInfo && 
     <div>
-      <div className="absolute flex flex-col z-50 top-0 left-0 h-full">
+      <div className="absolute flex flex-col z-50 top-0 left-0 h-full gradient">
         <button className="z-120 rounded-full border border-white/10 bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.1)] backdrop-blur p-1 self-end fixed top-4 right-4" onClick={() => setToggleDisplayInfo(false)}>
           <Image
             src='/assets/icons/PhX.svg'
@@ -184,7 +184,6 @@ const Nav = () => {
           <div className="overflow-y-auto">
             <PageDescription />
         </div>
-        <div className="main"></div>
       </div>
     </div>}
     </>
