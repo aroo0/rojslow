@@ -13,7 +13,6 @@ export const GET = async (request) => {
         const limit = url.searchParams.get('limit') 
 
 
-
         const posts = await Post.find({})
             .populate('creator')
             .sort({ date: -1 }) // Sort
@@ -21,6 +20,7 @@ export const GET = async (request) => {
             .limit(limit); // Limit the number of posts to be fetched
 
         return new Response(JSON.stringify(posts), {status: 200})
+        
     }   catch (error) {
         return new Response('Failed to fetch all posts', { status: 500 })
      

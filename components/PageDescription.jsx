@@ -27,7 +27,7 @@ const PageDescription = () => {
                 
         <h2 className=' text-2xl tracking-wider font-extrabold italic'>Krótka historia...</h2>
 
-        <p >W historii języka angielskiego wymyślanie nowych rzeczowników zbiorowych było nie tylko kreatywnym ćwiczeniem, ale również popularną grą salonową. W niezobowiązującej atmosferze spotkań towarzyskich i kręgów literackich, uczestnicy bawili się tworzeniem oryginalnych określeń dla różnych grup. Na zmianę wychodzono z nowymi propozycjami, dążąc do stworzenia nazw trafnie oddających ich charakterystykę. Ta gra  pełna była śmiechu, kreatywności i niezwykłych pomysłów, a efekty łatwo wpadały w pamięć, więc wiele z takich rzeczowników weszło na stałe do języka. Warto więc pamietać, że nie ma ścisłych reguł jak tworzyć rzeczowniki zbiorowe.</p>
+        <p >W historii języka angielskiego wymyślanie nowych rzeczowników zbiorowych było nie tylko kreatywnym ćwiczeniem, ale również popularną grą salonową. W niezobowiązującej atmosferze spotkań towarzyskich i kręgów literackich, uczestnicy bawili się tworzeniem oryginalnych określeń dla różnych grup. Na zmianę wychodzono z nowymi propozycjami, dążąc do stworzenia nazw trafnie oddających ich charakterystykę. Ta gra  pełna była śmiechu, kreatywności i niezwykłych pomysłów, a efekty łatwo wpadały w pamięć, więc wiele z takich rzeczowników weszło na stałe do języka.</p>
 
         
         <h3 className='text-lg font-bold tracking-wider'>Kilka przykładów w j. angielskim:</h3>

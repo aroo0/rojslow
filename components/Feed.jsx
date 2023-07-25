@@ -91,6 +91,7 @@ const Feed = () => {
       }
       setIsLoading(false); // Stop loading
       
+      
     } catch (error) {
       console.log('Faild to load')
     }
