@@ -17,8 +17,6 @@ const CardList = ({ data, handleTagClick }) => {
 
 const Feed = () => {
 
-  const [toggleDisplayInfo, setToggleDisplayInfo] = useState(false)
-
   // Post fetching states 
   const [posts, setPosts] = useState([]);
   const [offset, setOffset] = useState(0); // Number of posts already fetched
@@ -72,15 +70,6 @@ const Feed = () => {
     setSearchedResults(result);
   };
 
-  const fetchRestPosts = async () => {
-    const response = await fetch(`/api/post?offset=${offset}`);
-    const data = await response.json();
-
-    setPosts((prevPosts) => [...prevPosts, ...data]);
-    setIsLoading(false)
-
-  };
-
 
   // Function to fetch more posts when user reaches the bottom of the page
   const fetchMorePosts = async () => {
@@ -103,9 +92,22 @@ const Feed = () => {
       setIsLoading(false); // Stop loading
       
     } catch (error) {
-      console.log(error)
+      console.log('Faild to load')
     }
   };
+
+  const fetchRestPosts = async () => {
+    const response = await fetch(`/api/post?offset=${offset}`);
+    const data = await response.json();
+
+    setPosts((prevPosts) => [...prevPosts, ...data]);
+    setIsLoading(false)
+
+  };
+
+  
+
+
 
 
   // Effect to fetch more posts when the user reaches the bottom of the page
