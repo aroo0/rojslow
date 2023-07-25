@@ -7,7 +7,7 @@ const Profile = ( { username, oldUsername, setUsername, responseMessage, desc, d
   return (
     <section className='max-w-6xl mx-auto px-4'>
       <div className="self-stretch">
-      <div className="flex gap-6 items-end h-20 flex-wrap">
+      <div className="flex gap-6 items-end min-h-16 flex-wrap">
         {handleUsernameEditSubmit 
         ? (<ChangeUsername
               username={username}

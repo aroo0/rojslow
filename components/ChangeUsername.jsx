@@ -19,7 +19,7 @@ const ChangeUsername = ({ username, setUsername, editUsernameSwitch, setEditUser
       : (<>
       <form
         onSubmit={handleUsernameEditSubmit}
-        className="flex items-center gap-8">
+        className="flex flex-wrap items-center gap-x-8 gap-y-4">
         <span>
           <input
           value={username}
