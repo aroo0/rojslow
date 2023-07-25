@@ -5,7 +5,7 @@ import Spiner from "./LoadingSpiner";
 const Profile = ( { username, oldUsername, setUsername, responseMessage, desc, data, isLoading, hasMore, bottomElementRef, handleEdit, handleDelete, setEditUsernameSwitch, editUsernameSwitch, handleUsernameEditSubmit, submitting }) => {
 
   return (
-    <section className='max-w-6xl mx-auto'>
+    <section className='max-w-6xl mx-auto px-4'>
       <div className="self-stretch">
       <div className="flex gap-6 items-end h-20 flex-wrap">
         {handleUsernameEditSubmit 

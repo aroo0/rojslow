@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
-    <section className='w-full max-w-full flex-center flex-col'>
+    <section className='w-full max-w-full flex-center flex-col px-4'>
       <div className="flex-col flex-start ">
       <h1 className='head_text text-left'>{type} rzeczownik</h1>
       <p className='desc text-left max-w-md'>
