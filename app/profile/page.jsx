@@ -43,7 +43,7 @@ const MyProfile = () => {
       if (!hasMore || isLoading) return; // If there are no more posts to fetch, return
       
       setIsLoading(true); // Start loading
-      const response = await fetch(`/api/post?offset=${offset}&limit=5`);
+      const response = await fetch(`/api/users/${session?.user.id}/posts?offset=${offset}&limit=15`);
       const data = await response.json();
 
       if (data.length === 0) {
