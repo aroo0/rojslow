@@ -155,7 +155,7 @@ const Feed = () => {
         {hasMore && isLoading && <Spiner />}
 
         {/* Show message when there are no more posts to load */}
-        {!hasMore && <p className="py-8"> Dotarłeś do końca.</p> }
+        {!hasMore && <p className="py-8"> Oto koniec.</p> }
 
         <div ref={bottomElementRef}></div>
       

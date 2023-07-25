@@ -14,7 +14,7 @@ const PageDescription = () => {
 
         <p>Rzeczowniki zbiorowe są używane, gdy chcemy mówić o grupie, jako całości, zamiast skupiać się na pojedynczych jej elementach.</p>
 
-        <h3 className='text-xl font-bold tracking-wider'>Oto kilka przykładów:</h3>
+        <h3 className='text-xl font-bold tracking-wider'>Kilka przykładów:</h3>
 
         <p className='bg-white/10 p-3 italic tracking-wider text-sm'>stado bydła, klucz ptaków, rój pszczół, wataha wilków, tłum ludzi, drużyna graczy, komitet członków, ława przysięgłych, flota statków, kolekcja monet, bukiet kwiatów.</p>
 
@@ -27,16 +27,17 @@ const PageDescription = () => {
                 
         <h2 className=' text-2xl tracking-wider font-extrabold italic'>Krótka historia...</h2>
 
-        <p >W historii języka angielskiego wymyślanie nowych rzeczowników zbiorowych było nie tylko kreatywnym ćwiczeniem, ale również popularną grą towarzyską. W niezobowiązującej atmosferze spotkań towarzyskich i kręgów literackich, uczestnicy bawili się tworzeniem oryginalnych określeń dla różnych grup. Na zmianę wychodzono z nowymi propozycjami, dążąc do stworzenia nazw, które byłyby zarówno zabawne, jak i trafnie oddawałyby charakterystykę grupy. Ta gra towarzyska pełna była śmiechu, kreatywności i niezwykłych pomysłów, a efekty łatwo wpadały w pamięć, więc wiele z takich rzeczowników weszło na stałe do języka.</p>
+        <p >W historii języka angielskiego wymyślanie nowych rzeczowników zbiorowych było nie tylko kreatywnym ćwiczeniem, ale również popularną grą salonową. W niezobowiązującej atmosferze spotkań towarzyskich i kręgów literackich, uczestnicy bawili się tworzeniem oryginalnych określeń dla różnych grup. Na zmianę wychodzono z nowymi propozycjami, dążąc do stworzenia nazw trafnie oddających ich charakterystykę. Ta gra  pełna była śmiechu, kreatywności i niezwykłych pomysłów, a efekty łatwo wpadały w pamięć, więc wiele z takich rzeczowników weszło na stałe do języka. Warto więc pamietać, że nie ma ścisłych reguł jak tworzyć rzeczowniki zbiorowe.</p>
 
         
         <h3 className='text-lg font-bold tracking-wider'>Kilka przykładów w j. angielskim:</h3>
 
-        <p className='bg-white/10 p-3 italic tracking-wider'>‘murder of crows’, ‘charm of hummingbirds’, ‘parliment of owls’, ‘whisker of kittens’ ‘Exaltation of Larks’, ‘gaggle of geese’, ‘ostentation of peacocks’, ‘Barrel of Monkeys’, ‘conspiracy of ravens’, ‘blessing of unicorns’</p>
+        <p className='bg-white/10 p-3 italic tracking-wider'>‘murder of crows’, ‘charm of hummingbirds’, ‘parliment of owls’, ‘whisker of kittens’ ‘exaltation of larks’, ‘gaggle of geese’, ‘ostentation of peacocks’, ‘narrel of monkeys’, ‘conspiracy of ravens’, ‘blessing of unicorns’ itd.</p>
 
-        <h2 className='text-2xl tracking-wider font-extrabold '>Po co ten cały wybieg</h2>
+        <h2 className='text-2xl tracking-wider font-extrabold '>Po co cały ten wybieg</h2>
 
-        <p className="pb-8">Rzeczownik zbiorowe to istotnie wspaniałe klejnoty języka i chcielibyśmy aby weszły one na stałe do codziennego słownika. Niezależnie więc od tego, czy grupa wiewiórek to dla Ciebie bardziej coś a może bardziej coś(znaleźć przyklady) ta strona to miejsce, gdzie możesz wyjść z własna propozycją i przyczynić się do powstania gobelinu rzeczowników zbiorowych, a także poznać wyrażenia wymyślone przez innych.</p>
+        <p className="pb-8">Rzeczownik zbiorowe to  istotnie wspaniałe klejnoty języka, dlatego chcielibyśmy aby w całej swej krasie weszły do codzienneego słownika. I nawet jeśli rózne grupy zwierząt wyobrażamy sobie inaczej, a więc niezależnie od tego, czy grupa wiewiórek to dla Ciebie bardziej <i>skoczka</i>, a może bardziej <i>spirala</i>, ta strona daje Ci przestrzeń, gdzie możesz wyjść z własną propozycją i przyczynić się do powstania wielobarnego gobelinu rzeczowników zbiorowych.
+        </p>
 
         </div>
     </div >
