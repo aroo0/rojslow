@@ -1,4 +1,6 @@
-# rójsłow.pl collective Nouns in Polish Language - Next.js App
+# rójsłow.pl 
+
+## Collective Nouns in Polish Language - Next.js App
 
 ## Description
 
