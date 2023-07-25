@@ -55,7 +55,7 @@ const Nav = () => {
 
   return (
     <>
-    <nav className="flex-between w-full mb-16 pt-3 px-4 flex-wrap">
+    <nav className="flex-between w-full mb-16 pt-3 px-4">
         <Link href='/' className='text-black/80 font-andada lg:text-lg font-bold tracking-widest border-b-[3px] border-black/80 pb-2'>
             rójsłów.pl
         </Link>
