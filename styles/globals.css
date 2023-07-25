@@ -29,14 +29,12 @@
 }
 
 .main {
-  width: 100vw;
-  min-height: 100vh;
-
+  width: 100svw;
+  min-height: 100svh;
   position: fixed;
   display: flex;
   justify-content: center;
   pointer-events: none;
-  padding: 120px 24px 160px 24px;
   z-index: -1;
   background: linear-gradient(5deg, #D8602D 0%, #E77A38 40.10%, #EC8E46 73.96%, #F09846 100%);
   pointer-events: none;

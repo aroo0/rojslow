@@ -151,7 +151,7 @@ const Nav = () => {
             <button 
               type="button"
               onClick={() => setToggleDisplayInfo(true)} 
-              className="dropdown_link">
+              className="text-sm sm:text-base">
               Rzeczowniki zbiorowe
             </button>
             {
@@ -178,7 +178,7 @@ const Nav = () => {
             src='/assets/icons/PhX.svg'
             alt='x'
             width={23}
-            height={23}
+            height={25}
             className="opacity-80 " />
           </button>
           <div className="overflow-y-auto">

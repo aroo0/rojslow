@@ -24,7 +24,7 @@ const RootLayout = ({ children }) => {
         </div>
       <div className='min-h-screen col-span-2 flex flex-col justify-between pt-3'>
       <Provider>
-        <main className='app 2 px-4'>
+        <main className='app'>
         <Nav />
         {children}
         </main>
