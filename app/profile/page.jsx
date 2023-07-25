@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
@@ -11,8 +11,6 @@ const MyProfile = () => {
     const { data: session } = useSession();
     const router = useRouter()
 
-    const [posts, setPosts] = useState([])
-
     // Username states
     const [username, setUsername] = useState('');
     const [editUsernameSwitch, setEditUsernameSwitch] = useState(true);
@@ -20,27 +18,69 @@ const MyProfile = () => {
     const [oldUsername, setOldUsername] = useState('');
     const [responseMessage, setResponseMessage] = useState('');
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-          const response = await fetch(`/api/users/${session?.user.id}/posts`)
-          const data = await response.json()
-          setPosts(data)
-    
-        }
-        if (session?.user.id) fetchPosts()
-      }, [])
+    // Fetch states
+    const [posts, setPosts] = useState([])
+    const [offset, setOffset] = useState(0); // Number of posts already fetched
+    const [hasMore, setHasMore] = useState(true); // Flag to check if there are more posts to fetch
+    const [isLoading, setIsLoading] = useState(false)
+    const bottomElementRef = useRef();
+
 
     useEffect(() => {
-        const fetchUsername = async () => {
-          const response = await fetch(`/api/users/${session?.user.id}/username`)
-          const data = await response.json()
-          setUsername(data)
-          setOldUsername(data)
-    
+      const fetchUsername = async () => {
+        const response = await fetch(`/api/users/${session?.user.id}/username`)
+        const data = await response.json()
+        setUsername(data)
+        setOldUsername(data)
+  
+      }
+      if (session?.user.id) fetchUsername()
+    }, [])
+  
+
+    // Function to fetch more posts when user reaches the bottom of the page
+    const fetchMorePosts = async () => {
+      if (!hasMore || isLoading) return; // If there are no more posts to fetch, return
+      
+      setIsLoading(true); // Start loading
+      const response = await fetch(`/api/post?offset=${offset}&limit=5`);
+      const data = await response.json();
+
+      if (data.length === 0) {
+        // If no new posts are fetched, set hasMore to false to stop infinite scroll
+        setHasMore(false);
+      } else {
+        // Append new posts to the existing list
+        setPosts((prevPosts) => [...prevPosts, ...data]);
+        setOffset((prevOffset) => prevOffset + data.length); // Increment the offset
+      }
+      setIsLoading(false); // Stop loading
+    };
+
+
+    // Effect to fetch more posts when the user reaches the bottom of the page
+    useEffect(() => {
+      if (!bottomElementRef.current) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            fetchMorePosts();
+          }
+        },
+        { threshold: .5 }
+      );
+
+      observer.observe(bottomElementRef.current);
+
+      return () => {
+        if (bottomElementRef.current) {
+          observer.unobserve(bottomElementRef.current);
         }
-        if (session?.user.id) fetchUsername()
-      }, [])
-    
+      };
+    }, [bottomElementRef, offset]);
+
+
     
     const handleEdit = (post) => {
       router.push(`/update-post?id=${post._id}`)
@@ -112,7 +152,10 @@ const MyProfile = () => {
         handleEdit={handleEdit}
         handleDelete={handleDelete}
         handleUsernameEditSubmit={handleUsernameEditSubmit}
-        submitting={submitting} />
+        submitting={submitting}
+        isLoading={isLoading}
+        hasMore={hasMore}
+        bottomElementRef={bottomElementRef} />
   )
 }
 

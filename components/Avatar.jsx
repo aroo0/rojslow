@@ -10,10 +10,10 @@ const Avatar = ({ id }) => {
   return (<Image 
             src={svgURI} 
             alt={'avatar'} 
-            width={37} 
-            height={37}
+            width={32} 
+            height={32}
             saturation="60" 
-            lightness="60"
+            lightness="70"
             className='avatar cursor-pointer' 
             />)
 }

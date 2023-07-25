@@ -3,7 +3,7 @@ import Post from "@models/post";
 
 // GET (read)
 
-export const GET = async ({ params }) => {
+export const GET = async (request, { params }) => {
     try {
         await connectToDB();
 

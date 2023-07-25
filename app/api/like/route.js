@@ -43,7 +43,6 @@ export const PATCH = async (request) => {
     // Check if the like exists
     const existingLike = await Like.findOne({ userId: userId, postId: postId });
     const postCreator = await Post.findOne({ postId: postId })
-    console.log(postCreator.creator)
 
     if (existingLike) {
         // If the like exists, remove it (dislike)
@@ -54,7 +53,6 @@ export const PATCH = async (request) => {
       
         const user = await User.findById(postCreator.creator);
 
-      
         // Calculate the new rank based on the updated like count
         const rankTitle = rankCalculator(user.likeCount); // Use the calculateRank function
       

@@ -2,7 +2,8 @@ import Link from "next/link"
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
-    <section className='w-full max-w-full flex-start flex-col px-8'>
+    <section className='w-full max-w-full flex-center flex-col'>
+      <div className="flex-col flex-start ">
       <h1 className='head_text text-left'>{type} rzeczownik</h1>
       <p className='desc text-left max-w-md'>
       <span>Stwórz nowy rzeczownik zbiorowy.</span>
@@ -43,8 +44,8 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
                 {submitting ? `Publikuj...` : 'Publikuj'}
             </button>
           </div>
-
         </form>
+        </div>
     </section>
   )
 }

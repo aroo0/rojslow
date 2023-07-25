@@ -9,6 +9,7 @@ export const POST = async(req) => {
 
         const newPost = new Post({ 
             creator: userId,
+            date: new Date(),
             noun, 
             animals 
         })

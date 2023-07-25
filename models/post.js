@@ -5,6 +5,10 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    date: {
+        type: Date,
+        required: [true, 'Date is required']
+    },
     noun: {
         type: String,
         required: [true, 'Post is required']

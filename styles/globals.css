@@ -4,9 +4,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
-*/
+
+.overflow-hidden {
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.border_left {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2rem;
+  height: 96%;
+  border-left: 8px solid rgba(255, 255, 255, 0.10);
+
+}
+
+
+@media screen and (max-width: 1280px) {
+  .border_left {
+    border-left: none;
+  }
+}
 
 .main {
   width: 100vw;
@@ -14,19 +34,25 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  padding: 120px 24px 160px 24px;
   pointer-events: none;
-  background-image: linear-gradient(359deg, #CD6438 0%, #DB8B42 100%);
   z-index: -1;
+  background: linear-gradient(5deg, #D8602D 0%, #E77A38 40.10%, #EC8E46 73.96%, #F09846 100%);
+  pointer-events: none;
+}
+
+.main:after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: soft-light;
+  filter: brightness(80%);
+  content: "";
+  position: absolute;
+  background: url('/assets/noise.svg');
 }
 
 
-
-@media screen and (max-width: 640px) {
-  .main {
-    padding: 0;
-  }
-}
 
 .avatar {
   border-radius: 50%;
@@ -36,21 +62,19 @@
 /* Tailwind Styles */
 
 .app {
-  @apply relative flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+  @apply relative flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-10 2xl:px-16 pb-8 pt-2;
 }
 
 .head_text {
-  @apply font-andada text-black/80 font-bold text-4xl  border-black/80 border-b-[3px] pb-2
+  @apply font-andada text-black/80 font-bold text-2xl sm:text-4xl  border-black/80 border-b-[3px] pb-2
 }
 .light_btn {
   @apply rounded-full border border-white/10 bg-white/20 px-5 py-2 font-inter flex items-center justify-center transition-all hover:bg-white/10 font-medium text-sm
 }
 
 
-
-
 .desc {
-  @apply font-andada mt-5 text-lg text-black/80 max-w-2xl;
+  @apply font-andada mt-5 sm:text-lg text-black/80 max-w-2xl;
 }
 
 .search_input {
@@ -62,20 +86,19 @@
 }
 
 .glassmorphism {
-  @apply rounded-xl border border-white/10 bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.1)] backdrop-blur px-8 pt-8 pb-4;
+  @apply rounded-xl border border-white/10 bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.1)] backdrop-blur px-4 sm:px-8 pt-8 pb-4;
 }
 
-.prompt_layout {
-  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+.post_layout {
+  @apply space-y-6 py-8  sm:gap-6 md:columns-2 lg:columns-3 xl:columns-2 2xl:columns-3;
 }
 
 /* Feed Component */
 .feed {
-  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+  @apply mt-16 mx-auto w-full max-w-xl flex justify-center sm:items-center flex-col gap-2;
 }
 
 /* Form Component */
-
 
 .form_textarea {
   @apply w-full flex  mt-2 p-3 text-black/80 outline-0 bg-transparent	 border-black/80 border-b-[1px] rounded-none;
@@ -92,16 +115,16 @@ input::placeholder {
 /* Nav Component */
 
 .dropdown {
-  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white/20 min-w-[210px] flex flex-col gap-2 justify-end items-end border  border-white/10 z-10 backdrop-blur-lg;
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white/20 min-w-[230px] flex flex-col gap-2 justify-end items-end border  border-white/10 z-10 backdrop-blur-lg;
 }
 
 .dropdown_link {
-  @apply font-inter text-black/80 hover:text-gray-800 font-medium;
+  @apply font-inter text-black/80 hover:text-gray-800 ;
 }
 
 /* PromptCard Component */
 .noun_card {
-  @apply flex-1 break-inside-avoid border-black/80 border-b-[1px] bg-clip-padding px-2 py-5  md:w-[360px] w-full h-fit;
+  @apply flex-1 break-inside-avoid border-black/80 border-b-[1px] bg-clip-padding px-4 py-5  md:w-[320px] w-full h-fit;
 }
 
 .flex-center {

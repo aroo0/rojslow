@@ -1,11 +1,13 @@
 import ChangeUsername from "./ChangeUsername";
 import PostCard from "./PostCard";
+import Spiner from "./LoadingSpiner";
 
-const Profile = ( { username, oldUsername, setUsername, responseMessage, desc, data, handleEdit, handleDelete, setEditUsernameSwitch, editUsernameSwitch, handleUsernameEditSubmit, submitting }) => {
+const Profile = ( { username, oldUsername, setUsername, responseMessage, desc, data, isLoading, hasMore, bottomElementRef, handleEdit, handleDelete, setEditUsernameSwitch, editUsernameSwitch, handleUsernameEditSubmit, submitting }) => {
 
   return (
-    <section className='w-full flex-start flex-col'>
-      <div className="flex gap-6 items-end h-20">
+    <section className='max-w-6xl mx-auto'>
+      <div className="self-stretch">
+      <div className="flex gap-6 items-end h-20 flex-wrap">
         {handleUsernameEditSubmit 
         ? (<ChangeUsername
               username={username}
@@ -20,7 +22,8 @@ const Profile = ( { username, oldUsername, setUsername, responseMessage, desc, d
         : (<h1 className="head_text text-left">{username}</h1>)}
       </div>
       <p className="desc text-left">{desc}</p>
-      <div className="mt-10 prompt_layout">
+      </div>
+      <div className="mt-10 post_layout">
       {data.map((post) => (
         <PostCard 
           key={post._id} 
@@ -29,6 +32,12 @@ const Profile = ( { username, oldUsername, setUsername, responseMessage, desc, d
           handleDelete={() => handleDelete && handleDelete(post)}  />
         ))}
       </div>
+        {/* Show loading spinner when there are more posts to load */}
+        {hasMore && isLoading && <Spiner />}
+
+        {/* Show message when there are no more posts to load */}
+        {hasMore && <div ref={bottomElementRef}></div>}
+
     </section>
   )
 };

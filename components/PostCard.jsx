@@ -123,7 +123,7 @@ const PostCard = ( { post, handleTagClick, handleEdit, handleDelete }) => {
           />
         </div>
       </div>
-      <p className="font-andada text-lg mt-4">
+      <p className="font-andada sm:text-lg mt-4">
         <span 
           className="font-bold cursor-pointer"
           onClick={() => handleTagClick && handleTagClick(post.animals)}>

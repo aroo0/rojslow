@@ -6,7 +6,7 @@ const rankLevels = [
   { minLikes: 100, title: 'Wiciowce' },
   { minLikes: 50, title: 'Toczki' },
   { minLikes: 25, title: 'Klejnotki' },
-  { minLikes: 10, title: 'Pantofeleki' },
+  { minLikes: 10, title: 'Pantofelki' },
   { minLikes: 0, title: 'Ameby' },
   ];
   
