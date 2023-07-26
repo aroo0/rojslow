@@ -22,9 +22,11 @@ const Feed = () => {
   const [offset, setOffset] = useState(0); // Number of posts already fetched
   const [hasMore, setHasMore] = useState(true); // Flag to check if there are more posts to fetch
   const [isLoading, setIsLoading] = useState(false); // State to track loading status
+  const [error, setError] = useState(false); // State to track error status
 
   // Ref to the bottom of the page element as fetch start
   const bottomElementRef = useRef();
+
 
   // Search states
   const [initSearch, setInitSearch] = useState(true)
@@ -90,10 +92,13 @@ const Feed = () => {
         setOffset((prevOffset) => prevOffset + data.length); // Increment the offset
       }
       setIsLoading(false); // Stop loading
+      setError(false)
       
       
     } catch (error) {
       console.log('Faild to load')
+      setIsLoading(false);
+      setError(true); // Set error state on fetch failure
     }
   };
 
@@ -151,6 +156,18 @@ const Feed = () => {
     
       <CardList data={searchText ? searchedResults : posts} handleTagClick={handleTagClick} />
 
+      {error && (
+        <div className="">
+          Coś poszło nie tak...{" "}
+          <button className='underline' onClick={() => {
+            setError(false); // Clear the error state before retrying
+            fetchMorePosts(); // Retry fetching
+          }}>
+            Kliknij tutaj
+          </button>
+        </div>
+      )}
+
 
       
 
@@ -158,7 +175,7 @@ const Feed = () => {
         {hasMore && isLoading && <Spiner />}
 
         {/* Show message when there are no more posts to load */}
-        {!hasMore && <p className="py-8"> Oto koniec.</p> }
+        {!hasMore && !error && <p className="py-8"> Oto koniec.</p> }
 
         <div ref={bottomElementRef}></div>
       
