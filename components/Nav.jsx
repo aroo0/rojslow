@@ -3,14 +3,12 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect, useRef } from 'react'
-import { signIn, signOut, useSession, getProviders } from 'next-auth/react'
+import {signOut, useSession} from 'next-auth/react'
 import Avatar from '@components/Avatar'
 import PageDescription from "./PageDescription"
 
 const Nav = () => {
   const { data: session } = useSession()
-
-  const [providers, setProviders] = useState(null)
   const [toggleDropdown, setToggleDropdown] = useState(false)
   const [toggleDisplayInfo, setToggleDisplayInfo] = useState(false)
 
@@ -19,12 +17,6 @@ const Nav = () => {
 
 
   useEffect(() => {
-    const fetchProviders = async () => {
-      const response = await getProviders()
-
-      setProviders(response)
-    }
-    fetchProviders()
 
     // Close dropdown when clicking anywhere else on the page
     const handleClickOutside = (event) => {
@@ -85,18 +77,14 @@ const Nav = () => {
               Rzeczowniki zbiorowe
             </button>
 
-            {
-              providers && 
-              Object.values(providers).map((provider) => (
-                <button
-                type="button"
-                key={provider.name}
-                onClick={() => signIn(provider.id)}
-                className='light_btn'>
-                  Zaloguj
-                </button>
-              ))
-            }
+          
+            <Link href='/sign'>
+              <button
+                  type="button"
+                  className='light_btn'>
+                    Zaloguj
+              </button>
+            </Link>
             </>
           )}
           </div>
@@ -154,18 +142,13 @@ const Nav = () => {
               className="text-sm sm:text-base">
               Rzeczowniki zbiorowe
             </button>
-            {
-              providers && 
-              Object.values(providers).map((provider) => (
-                <button
-                type="button"
-                key={provider.name}
-                onClick={() => signIn(provider.id)}
-                className='light_btn'>
-                  Zaloguj
-                </button>
-              ))
-            }
+            <Link href='/sign'>
+              <button
+                  type="button"
+                  className='light_btn'>
+                    Zaloguj
+              </button>
+            </Link>
             </div>
           )}
         </div>

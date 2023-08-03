@@ -142,7 +142,7 @@ const PostCard = ( { post, handleTagClick, handleEdit, handleDelete }) => {
             src={isLiked ? '/assets/icons/PhStarFill.svg' :'/assets/icons/PhStar.svg'}
             width={18}
             height={18}
-            className=" opacity-80 cursor-pointer"
+            className={`${session?.user.id && 'cursor-pointer'} opacity-80`}
             alt='star like button'
             onClick={session?.user.id && handleLikeClick}
           />

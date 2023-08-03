@@ -30,7 +30,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           <input
             value={post.animals}
             onChange={(e) => setPost({...post, animals: e.target.value})}
-            placeholder="Koty"
+            placeholder="np. Koty"
             required
             className='form_textarea font-andada font-medium'></input>
           </label>
