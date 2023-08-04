@@ -22,7 +22,6 @@ export const GET = async (request) => {
             .skip(offset) // Skip the specified number of posts
             .limit(limit); // Limit the number of posts to be fetched
 
-            console.log(posts)
 
         return new Response(JSON.stringify(posts), {status: 200})
         
