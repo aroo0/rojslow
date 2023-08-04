@@ -14,10 +14,15 @@ export const GET = async (request) => {
 
 
         const posts = await Post.find({})
-            .populate('creator')
+            .populate({
+                path: 'creator',
+                select: '-email' // Exclude the 'email' field from the populated 'creator' object
+            })
             .sort({ date: -1 }) // Sort
             .skip(offset) // Skip the specified number of posts
             .limit(limit); // Limit the number of posts to be fetched
+
+            console.log(posts)
 
         return new Response(JSON.stringify(posts), {status: 200})
         
