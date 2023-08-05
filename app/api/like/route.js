@@ -42,7 +42,10 @@ export const PATCH = async (request) => {
 
     // Check if the like exists
     const existingLike = await Like.findOne({ userId: userId, postId: postId });
-    const postCreator = await Post.findOne({ postId: postId })
+    const postCreator = await Post.findOne({ _id: postId })
+    console.log(existingLike)
+    console.log(postCreator)
+
 
     if (existingLike) {
         // If the like exists, remove it (dislike)
@@ -50,6 +53,7 @@ export const PATCH = async (request) => {
         // Decrement the like count of the post
         await Post.findByIdAndUpdate(postId, { $inc: { likeCount: -1 } });
         await User.findByIdAndUpdate(postCreator.creator, { $inc: { likeCount: -1 } });
+
       
         const user = await User.findById(postCreator.creator);
 
