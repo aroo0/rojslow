@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 
 import Spiner from "./LoadingSpiner";
 import PostCard from "./PostCard";
@@ -19,13 +19,8 @@ const Feed = () => {
 
   // Post fetching states 
   const [posts, setPosts] = useState([]);
-  const [offset, setOffset] = useState(0); // Number of posts already fetched
-  const [hasMore, setHasMore] = useState(true); // Flag to check if there are more posts to fetch
   const [isLoading, setIsLoading] = useState(false); // State to track loading status
   const [error, setError] = useState(false); // State to track error status
-
-  // Ref to the bottom of the page element as fetch start
-  const bottomElementRef = useRef();
 
 
   // Search states
@@ -72,38 +67,8 @@ const Feed = () => {
     setSearchedResults(result);
   };
 
-
-  // Function to fetch more posts when user reaches the bottom of the page
-  const fetchMorePosts = async () => {
-
-    if (!hasMore || isLoading) return; // If there are no more posts to fetch, return
-    
-    setIsLoading(true); // Start loading
-    try {
-      const response = await fetch(`/api/post?offset=${offset}&limit=15`);
-      const data = await response.json();
-  
-      if (data.length === 0) {
-        // If no new posts are fetched, set hasMore to false to stop infinite scroll
-        setHasMore(false);
-      } else {
-        // Append new posts to the existing list
-        setPosts((prevPosts) => [...prevPosts, ...data]);
-        setOffset((prevOffset) => prevOffset + data.length); // Increment the offset
-      }
-      setIsLoading(false); // Stop loading
-      setError(false)
-      
-      
-    } catch (error) {
-      console.log('Faild to load')
-      setIsLoading(false);
-      setError(true); // Set error state on fetch failure
-    }
-  };
-
   const fetchRestPosts = async () => {
-    const response = await fetch(`/api/post?offset=${offset}`);
+    const response = await fetch(`/api/post`);
     const data = await response.json();
 
     setPosts((prevPosts) => [...prevPosts, ...data]);
@@ -111,32 +76,10 @@ const Feed = () => {
 
   };
 
-  
-
-
-
-
-  // Effect to fetch more posts when the user reaches the bottom of the page
   useEffect(() => {
-    if (!bottomElementRef.current) return;
+    fetchRestPosts()
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          fetchMorePosts();
-        }
-      },
-      { threshold: .5 }
-    );
-
-    observer.observe(bottomElementRef.current);
-
-    return () => {
-      if (bottomElementRef.current) {
-        observer.unobserve(bottomElementRef.current);
-      }
-    };
-  }, [bottomElementRef, offset]);
+  }, []);
 
 
   return (
@@ -172,12 +115,9 @@ const Feed = () => {
       
 
         {/* Show loading spinner when there are more posts to load */}
-        {hasMore && isLoading && <Spiner />}
+        { isLoading && <Spiner />}
 
-        {/* Show message when there are no more posts to load */}
-        {!hasMore && !error && <p className="py-8"> Oto koniec.</p> }
 
-        <div ref={bottomElementRef}></div>
       
     </section>
   );
