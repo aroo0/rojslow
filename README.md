@@ -4,12 +4,12 @@
 
 ## Stack
 
-React
-Next.js
-Tailwind
-JS
-MongoDB
-Figma
+- React
+- Next.js
+- Tailwind
+- JS
+- MongoDB
+- Figma
 
 ## Features
 
