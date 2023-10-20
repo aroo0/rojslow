@@ -28,7 +28,7 @@
 }
 
 .gradient {
-  background: linear-gradient(5deg, #D8602D 0%, #E77A38 40.10%, #EC8E46 73.96%, #F09846 100%);
+  background: linear-gradient(5deg, rgba(50, 69, 87, 0.8) 0%, rgba(167, 138, 63, 1) 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
 
@@ -46,7 +46,7 @@
 }
 
 .head_text {
-  @apply font-andada text-black/80 font-bold text-2xl sm:text-4xl  border-black/80 border-b-[3px] pb-2
+  @apply font-andada text-white/80 font-bold text-2xl sm:text-4xl  border-black/80 border-b-[3px] pb-2
 }
 .light_btn {
   @apply rounded-full border border-white/10 bg-white/20 px-5 py-2 font-inter flex items-center justify-center transition-all hover:bg-white/10 font-medium text-sm
@@ -81,7 +81,7 @@
 /* Form Component */
 
 .form_textarea {
-  @apply w-full flex  mt-2 p-3 text-black/80 outline-0 bg-transparent	 border-black/80 border-b-[1px] rounded-none;
+  @apply w-full flex  mt-2 p-3 text-white/80 outline-0 bg-transparent	 border-black/80 border-b-[1px] rounded-none;
 }
 
 input::placeholder {
