@@ -44,7 +44,7 @@ const page = () => {
         type="button"
         key={provider.name}
         onClick={() => signIn(provider.id)}
-        className='flex gap-3 bg-white/20 py-4 px-8 sm:px-14 rounded-lg  justify-center  border border-white/10 shadow-sm hover:ring-2 hover:ring-white/10'>
+        className='flex gap-3 bg-white/20 py-4 px-8 sm:px-14 rounded-lg  justify-center hover:scale-[1.03] hover:bg-white/30 transition duration-300'>
           <Image 
             src={provider.name === 'Google' ? '/assets/icons/Google__G__Logo.svg' : 'assets/icons/Octicons-mark-github.svg'}
             width={25}

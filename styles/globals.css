@@ -46,10 +46,10 @@
 }
 
 .head_text {
-  @apply font-andada text-white/80 font-bold text-2xl sm:text-4xl  border-black/80 border-b-[3px] pb-2
+  @apply font-andada text-black/80 font-bold text-2xl sm:text-4xl  border-black/80 border-b-[3px] pb-2
 }
 .light_btn {
-  @apply rounded-full border border-white/10 bg-white/20 px-5 py-2 font-inter flex items-center justify-center transition-all hover:bg-white/10 font-medium text-sm
+  @apply rounded-full  bg-white/20 px-5 py-2 font-inter flex items-center justify-center transition-all  hover:bg-white/30 duration-300 font-medium text-sm
 }
 
 
@@ -66,7 +66,7 @@
 }
 
 .glassmorphism {
-  @apply rounded-xl border border-white/10 bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.1)] backdrop-blur px-4 sm:px-8 pt-8 pb-4;
+  @apply rounded-xl  bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.1)] backdrop-blur px-4 sm:px-8 pt-8 pb-4;
 }
 
 .post_layout {
@@ -81,7 +81,7 @@
 /* Form Component */
 
 .form_textarea {
-  @apply w-full flex  mt-2 p-3 text-white/80 outline-0 bg-transparent	 border-black/80 border-b-[1px] rounded-none;
+  @apply w-full flex  mt-2 p-3 text-black/80 outline-0 bg-transparent	 border-black/80 border-b-[1px] rounded-none;
 }
 
 input::placeholder {
